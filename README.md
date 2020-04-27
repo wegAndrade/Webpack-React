@@ -59,5 +59,15 @@ No JSX se usa className e htmlFor respectivamente para esses casos.
 `<label ***htmlFor**="User>Label</label>`
 `<input id='User' type="text">`
 
- 
 
+### Aula M1#A09 - getDefaultProps
+
+Caso a propriedade não seja passada no momento da renderização do componente pode ser utilizada a  função getDefaultProps para definir valores padrões para esses casos exemplo:
+
+` getDefaultProps: function () {
+    return {
+      name: 'Desconhecido'
+    }
+  },`
+ 
+Após o **createClass***.
