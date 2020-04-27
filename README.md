@@ -70,4 +70,14 @@ Caso a propriedade não seja passada no momento da renderização do componente 
     }
   },`
  
-Após o **createClass***.
+Após o **createClass**.
+
+
+
+### Aula M1#A10 - Outros tipos de dados via props
+
+Para passar outros tipos de dados (!string) devemos utilizar as **{}** por exemplo:
+
+`<Title idade ={18}/>`
+
+
