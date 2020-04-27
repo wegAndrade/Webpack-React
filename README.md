@@ -40,6 +40,24 @@ Para passar props devemos utilizar uma sintaxe parecida com as propriedades do H
  
  para pegarmos as props usando JSX no arquivo do componente devemos usar **{this.props.NOME_DA_PROP }** na função render exemplo:
  `<div>Olá {this.props.name} </div> `
+ 
+
+
+### Aula M1#A08 - Atributos HTML
+
+Algumas propriedades do html tem a mesma sintaxe de palavras reservadas do JS, por isso tem uma forma diferente em JSX como por exemplo o class e o for.
+
+No JSX se usa className e htmlFor respectivamente para esses casos.
+
+#### HTML
+`<div ***class***="container"></div>`
+`<label ***for**="User>Label</label>`
+`<input id='User' type="text">` 
+
+#### JSX (REACT)
+`<div ***className***="container"></div>`
+`<label ***htmlFor**="User>Label</label>`
+`<input id='User' type="text">`
 
  
 
