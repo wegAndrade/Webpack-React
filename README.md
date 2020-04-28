@@ -141,7 +141,7 @@ Title.defaultProps = {
 name: 'Visitante'
 }
 ```
-### Aula M1#A11 - Rendezirando componentes com classes
+### Aula M1#A12 - Rendezirando componentes com classes
 
 utilizando classes do EcmaScript 2015(6) podemos renderizar componentes extendendo a classe React.Component:
 ```
@@ -157,7 +157,7 @@ class App extends React.Component {
 }
 ```
 
-### Aula M1#A11 - Conhecendo a prop key.
+### Aula M1#A13 - Conhecendo a prop key.
 
 A prop key é utilizada como um identificador pelo React quando temos varios componentes sendo renderizados dentro de uma iteração.
 deve ser um valor unico de identificação que ajuda o react a ser mais performatico e identificar mudanças nos componentes renderizados em tela.
@@ -191,7 +191,7 @@ const Square = ({ color }) => (
 )
 ```
 
-### Aula M1#A11 - Problemas ao duplicar uma Key
+### Aula M1#A14 - Problemas ao duplicar uma Key
 Quando duplicamos uma Key o React entende que ele é o mesmo objeto que o outro objeto de Key igual.
 Como no exemplo:
 ```
@@ -224,3 +224,22 @@ class App extends React.Component {
 }
 ```
 No metodo Map podemos passar um segundo parâmetro com o Index das posições do array [0,1,2...] sendo assim a Key dentro da iteração se torna unica para cada um dos elementos.
+
+### Aula M1#A15 - Eventos
+os eventos são escritos Inline no component, os eventos tem a sintaxe de on + Nome do evento (camelCase) exemplo - onClick.
+```
+
+class App extends React.Component {
+  render () {
+    return (
+      <div onClick={function (e) {
+        alert('clickou')
+      }}
+      >
+        <Square color='red' />
+      </div>
+    )
+  }
+}
+```
+
