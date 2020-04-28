@@ -64,11 +64,13 @@ No JSX se usa className e htmlFor respectivamente para esses casos.
 
 Caso a propriedade não seja passada no momento da renderização do componente pode ser utilizada a  função getDefaultProps para definir valores padrões para esses casos exemplo:
 
-` getDefaultProps: function () {
+``` 
+getDefaultProps: function () {
     return {
       name: 'Desconhecido'
     }
-  },`
+  },
+  ```
  
 Após o **createClass**.
 
@@ -81,3 +83,61 @@ Para passar outros tipos de dados (!string) devemos utilizar as **{}** por exemp
 `<Title idade ={18}/>`
 
 
+### Aula M1#A11 - Rendezirando componentes com funções puras
+
+#### Funções puras :
+São funções que independete do(s) parametro(s) passados retornam o mesmo valor.
+
+exemplo
+```
+function soma(a,b){
+return a+ b;
+}
+```
+
+#### Funções Impuras:
+São funções que modificam um objeto ou que retornam um valor diferente mesmo que passe o(s) mesmo(s) parâmetros.
+Exemplo:
+```
+function randomiza(a,b){
+return Math.Random(a + b);
+}
+```
+
+#### Renderizando componentes com funções puras
+##### Componente - Função
+O componente se torna uma função:
+```
+const Title =(props) => (
+<h1>Olá {`${props.name}`}</h1>
+)
+```
+Observe que as props são recebidas como um parametro e são passadas da mesma forma no render:
+```
+const App = React.createClass({
+  render: function () {
+    return (
+      <div>Aplicação
+        <Title name='Wellington de Andrade' />
+        <span>
+          Sem props <Title />
+        </span>
+      </div>
+    )
+  }
+}
+```
+Pode também ser realizada a seguinte sintax  para extrair as props desejadas.
+```
+const Title = ({ name }) => (
+  <h1>Olá {`${name}`}</h1>
+)
+```
+##### Usando o Default props
+
+Para utilizar o defaultProps com funções puras deve se criar um metodo estático da seguinte forma com as props desejadas:
+```
+Title.defaultProps = {
+name: 'Visitante'
+}
+```
