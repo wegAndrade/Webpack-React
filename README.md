@@ -156,3 +156,39 @@ class App extends React.Component {
   }
 }
 ```
+
+### Aula M1#A11 - Conhecendo a prop key.
+
+A prop key é utilizada como um identificador pelo React quando temos varios componentes sendo renderizados dentro de uma iteração.
+deve ser um valor unico de identificação que ajuda o react a ser mais performatico e identificar mudanças nos componentes renderizados em tela.
+Exemplo:
+
+```
+
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+        {['blue', 'red', 'green'].map((square) => (
+          <Square key={square} color={square} />
+        ))}
+      </div>
+    )
+  }
+}
+´´´´
+####### OBS - Style Objetct React:
+Para o React o atributo style quando utilizado inline( propriedade do HTML - STYLE) se torna um objeto com todas propriedades utilizadas pelo CSS com sintaxe do JS. Exemplo:
+``` 
+const Square = ({ color }) => (
+  <div style={{
+    backgroundColor: color,
+    height: '100px',
+    width: '100px'
+  }}
+  />
+)
+
+```
+
+
