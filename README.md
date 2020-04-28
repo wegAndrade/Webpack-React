@@ -190,3 +190,37 @@ const Square = ({ color }) => (
   />
 )
 ```
+
+### Aula M1#A11 - Problemas ao duplicar uma Key
+Quando duplicamos uma Key o React entende que ele é o mesmo objeto que o outro objeto de Key igual.
+Como no exemplo:
+```
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+        {['blue', 'red', 'blue'].map((square) => (
+          <Square key={square} color={square} />
+        ))}
+      </div>
+    )
+  }
+}
+``` 
+Pra evitar esse problema devemos utilizar um identificador unico como por exemplo a posição de um array.
+
+Para implementar esta opção devemos realizar o seguinte código:
+```
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+        {['blue', 'red', 'blue'].map((square,index) => (
+          <Square key={index} color={square} />
+        ))}
+      </div>
+    )
+  }
+}
+```
+No metodo Map podemos passar um segundo parâmetro com o Index das posições do array [0,1,2...] sendo assim a Key dentro da iteração se torna unica para cada um dos elementos.
