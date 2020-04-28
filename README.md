@@ -141,3 +141,18 @@ Title.defaultProps = {
 name: 'Visitante'
 }
 ```
+### Aula M1#A11 - Rendezirando componentes com classes
+
+utilizando classes do EcmaScript 2015(6) podemos renderizar componentes extendendo a classe React.Component:
+```
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+        Aplicação
+        <Title name='Programador React' />
+      </div>
+    )
+  }
+}
+```
