@@ -242,4 +242,25 @@ class App extends React.Component {
   }
 }
 ```
+### Aula M1#A16 - A prop Children
 
+Para ter uma maior flexibilidade de seus componentes se pode utilizar a prop Children, onde você coloca um texto e\ou  componentes React ou HTML dentro do seu componente e eles são renderizados. Conforme exemplo:
+
+``` 
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+        <Button><sapn>Texto Children</sapn></Button>
+      </div>
+    )
+  }
+}
+``` 
+
+Já o Componente ficará da seguinte forma:
+```
+const Button = ({ children }) => (
+  <button>{children}</button>
+)
+```
