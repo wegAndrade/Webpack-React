@@ -264,3 +264,48 @@ const Button = ({ children }) => (
   <button>{children}</button>
 )
 ```
+
+### Aula M1#A17 - Composição
+
+Composição em React pode ser utilizada ou definida como a criação de um componente generico que pode ser utilizado em outros componentes mais especificos.
+Como por exemplo:
+###### Botão Generico
+```
+import React from 'react'
+
+const Button = ({ children }) => (
+  <button>{children}</button>
+)
+export default Button
+
+```
+###### Botão Like
+```
+
+import React from 'react'
+import Button from './button'
+
+const ButtonLike = () => (
+  <Button>Like</Button>
+)
+
+export default ButtonLike
+```
+
+Podemos passar props entre estes componentes, como por exemplo funções como no exemplo:
+###### Generico 
+- Recebe uma Prop handleClick que é uma função para o componentes especifico e chama a propriedade onClick do Html via JSX passando o handleClick.
+```
+const Button = ({children, hadleClick}) => (
+<button onClick ={handleClick}>
+{children}
+</button>
+)
+````
+###### Especifico
+- Passa dentro da tag do componente especifico a prop handleClick com a função como parametro.
+```
+const ButtonLike = () => (
+  <Button handleClick={() => alert('Like')}>Like</Button>
+)
+```
