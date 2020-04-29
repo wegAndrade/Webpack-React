@@ -339,3 +339,14 @@ class App extends React.Component {
 ```
 
 Ao clicar na div o React (Re) renderiza seu componente novamente setando o this.state.text como Alterado.
+
+### Aula M1#A19 - Arrow Functions
+
+
+- Sintaxe:
+```
+const sum = (a,b) => a + b;
+```
+- Motivos:
+
+Deixar o código menos verboso e mais simples.
