@@ -309,3 +309,33 @@ const ButtonLike = () => (
   <Button handleClick={() => alert('Like')}>Like</Button>
 )
 ```
+### Aula M1#A18 - State
+
+State é o estado da sua aplicação, um state não pode ser alterado diretamente e é setado diretamente no constructor, apenas é alterado deixando assim seu componente dinamico atraves da fumlçao setState(this.setState) retornando um objeto.
+
+A Classe fica da seguinte forma:
+
+```
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      text: 'Wellington'
+    }
+  }
+
+  render () {
+    return (
+      <div
+        className='container' onClick={() => this.setState({
+          text: 'Alterado'
+        })}
+      >
+        {this.state.text}
+      </div>
+    )
+  }
+}
+```
+
+Ao clicar na div o React (Re) renderiza seu componente novamente setando o this.state.text como Alterado.
