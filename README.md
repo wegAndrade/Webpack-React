@@ -350,3 +350,73 @@ const sum = (a,b) => a + b;
 - Motivos:
 
 Deixar o código menos verboso e mais simples.
+
+
+### Aula M1#A20 - Stateful X Stateless
+
+#### Stateful 
+São componentes que manipulam estados, obrigatoria mentem tem de ser classes que extendem o Component do React.
+- Exemplo:
+```
+
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      color: 'green'
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <Square color={this.state.color} />
+        {['red', 'green', 'blue'].map((color) => (
+          <Button
+            key={color}
+            handleClick={() => this.setState({ color })}
+          >
+            {color}
+          </Button>
+        ))}
+      </div>
+    )
+  }
+}
+```
+
+O Componente App é um Stateful, pois manipula o State e passa ele como parametro para o Square que o recebe como uma propriedade e é (re) renderizado com a cor do botão selecionada. O Botão por sua vez ao ser clicado altera o state setando ele com o valor de cada botão atribuido no map do array.
+
+#### Stateless
+Não manipula estados e podem ser qualquer tipo de componente.
+
+####### Observações e Anotações : Não se deve mudar props de forma manual dentro do componente filho, as props devem vir sempre do componente pai.
+
+- Exemplo:
+```
+const Square = ({ color }) => (
+  <div style={{
+    backgroundColor: color,
+    height: '100px',
+    width: '100px'
+  }}
+  />
+)
+Square.defaultProps = {
+  color: 'red'
+}
+```
+O Square por sua vez é uma função pura que recebe por parametro uma prop de seu elemento pai, neste exemplo o APP, e renderiza uma div com a cor passada pela prop.
+
+```
+
+
+const Button = ({ children, handleClick }) => (
+  <button onClick={handleClick}>
+    {children}
+  </button>
+)
+```
+O Button é também uma função pura que recebe dois parametros um children ( Elementos filhos - Aula M1#A16 - A prop Children) e uma prop que é uma função chamada handleClick, o Button é formado por um botão do html que possui como propriedade o onClick que chama a prop handleClick(uma função) e rendezira o children neste caso como texto do botão.
+
+
