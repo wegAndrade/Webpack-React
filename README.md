@@ -434,3 +434,71 @@ O Button é também uma função pura que recebe dois parametros um children ( E
 - shouldComponentUpdate(nextProps, nextState) - Serve para verificar se deve ou não atualizar o component, recebe as próximas props e próximo state - Retorna Bool.
 - componentWillUpdate(nextProps, nextState) - Passou do should e ainda vai ser atualizado.
 - componentDidUpdate(prevProps, prevState) - Pós atualização.
+
+### Aula M1#A22 - Lifecycle fluxo de montagem/ desmontagem
+ - Implementação de exemplo utilizando alguns dos metodos usados na aula acima:
+  ###### timer.js
+  ``` 
+    'use strict'
+import React, { Component } from 'react'
+
+class timer extends Component {
+  constructor () {
+    super()
+    this.state = {
+      time: 0
+    }
+  }
+
+  //  componente foi montado
+  componentDidMount () {
+  //  atribuindo um intervalo para alterar o state time para + 1  a cada 1 sec
+    this.timer = setInterval(() => this.setState({ time: this.state.time + 1 })
+      , 1000)
+  }
+
+  //   quando o componente vai ser desmontado
+  componentWillUnmount () {
+  //  Apagando o timer para não dar erro ao desmontar o componente
+    clearInterval(this.timer)
+  }
+
+  render () {
+    return (<div>Timer: {this.state.time}</div>)
+  }
+}
+export default timer
+```
+###### app.js
+```
+import React from 'react'
+import Timer from './timer'
+
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      showTimer: true
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        {/* adicionando um condicional se (true && true) mostra o timer */}
+        {this.state.showTimer && <Timer />}
+        <button
+          onClick={() => this.setState({ showTimer: !this.state.showTimer })}
+        >
+          Show || hide timer
+        </button>
+      </div>
+    )
+  }
+}
+```
+
+--- Comentarios no código -----
+
+    
+ 
