@@ -355,7 +355,7 @@ Deixar o código menos verboso e mais simples.
 ### Aula M1#A20 - Stateful X Stateless
 
 #### Stateful 
-São componentes que manipulam estados, obrigatoriamentem tem de ser classes que extendem o Component do React.
+São componentes que manipulam estados, obrigatoriamente tem de ser classes que extendem o Component do React.
 - Exemplo:
 ```
 
@@ -409,8 +409,6 @@ Square.defaultProps = {
 O Square por sua vez é uma função pura que recebe por parametro uma prop de seu elemento pai, neste exemplo o APP, e renderiza uma div com a cor passada pela prop.
 
 ```
-
-
 const Button = ({ children, handleClick }) => (
   <button onClick={handleClick}>
     {children}
@@ -419,4 +417,20 @@ const Button = ({ children, handleClick }) => (
 ```
 O Button é também uma função pura que recebe dois parametros um children ( Elementos filhos - Aula M1#A16 - A prop Children) e uma prop que é uma função chamada handleClick, o Button é formado por um botão do html que possui como propriedade o onClick que chama a prop handleClick(uma função) e rendezira o children neste caso como texto do botão.
 
+### Aula M1#A20 - Lifecycle dos componentes
+####Fluxos:(Metodos - servem para saber momentos especificos da vida do componente)
+##### Mountin
+####### Montagem do Componente
+- componentWillMount - Antes do componente montar
+- componentDidMount - Montou
 
+##### Unmounting
+####### Desmomtagem do Componente
+- componentWillUnmount - Saber quando o componente será desmontado ou removido da tela
+
+##### Updating
+####### Atualização
+- componentWillReceiveProps(nextProps) - Antes de ser atualizado e recebe os parametros das proximas props.
+- shouldComponentUpdate(nextProps, nextState) - Serve para verificar se deve ou não atualizar o component, recebe as próximas props e próximo state - Retorna Bool.
+- componentWillUpdate(nextProps, nextState) - Passou do should e ainda vai ser atualizado.
+- componentDidUpdate(prevProps, prevState) - Pós atualização.
