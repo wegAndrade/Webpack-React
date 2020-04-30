@@ -355,7 +355,7 @@ Deixar o código menos verboso e mais simples.
 ### Aula M1#A20 - Stateful X Stateless
 
 #### Stateful 
-São componentes que manipulam estados, obrigatoria mentem tem de ser classes que extendem o Component do React.
+São componentes que manipulam estados, obrigatoriamentem tem de ser classes que extendem o Component do React.
 - Exemplo:
 ```
 
