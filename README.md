@@ -528,7 +528,7 @@ return this.state !== next state
 ```
 Neste caso no return está sendo enviada uma condição caso o state atual seja diferente do próximo state ele irá renderizar novamente o componente caso não irá manter o mesmo.
 
-### Aula M1#A25 - Lifecycle fluxo de atualização: componentWillUpdate
+### Aula M1#A26 - Lifecycle fluxo de atualização: componentWillUpdate
 Esse método é executado pouco antes do componente ser atualizado de fato, recebe nextProps e o nextState.
 Exemplo:
 ```
@@ -548,3 +548,36 @@ console.log('componentDidUpdate: ' + prevProps + ', ' + prevState)
 }
 ```
 Pode ser utilizado para armazenar mudanças e fazer um timing travel para navegar entre as mudanças e manter o historico.
+
+### Aula M1#A27 -propTypes
+
+é uma função (para classes) ou um método estatico(para funções puras) que é utilizado para 'tipar' as propriedades ou torna-las obrigatorias durante o desenvolvimento da aplicação
+exemplo
+```
+'use strict'
+import React from 'react'
+
+const Button = ({ children, handleClick }) => (
+  <button onClick={handleClick}>
+    {children}
+  </button>
+)
+Button.propTypes = {
+  handleClick: React.PropTypes.func.isRequired
+}
+export default Button
+```
+Neste caso utilizamos o metodo estático <b>propTypes</b> dentro dessa propriedade estatica passamos o tipo para cada propriedade desejada utilizando o objeto <b>React</b> e o <b>PropTypes</b> e o tipo que desejamos e se obrigatorio usamos o <b> isRequired</b>
+
+Quando não passado o tipo esperado ou a propriedade no componente é gerado um warning no console:
+
+<b>
+Warning: Failed prop type: The prop `handleClick` is marked as required in `Button`, but its value is `undefined`.
+    in Button (created by App)
+    in App
+    in AppContainer
+</b>
+
+Lista de tipos: [propTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+
