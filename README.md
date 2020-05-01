@@ -646,3 +646,21 @@ class App extends React.Component {
 ```
 
 
+### Aula M1#A29 -  Formulários Checkbox e Radio
+
+O Input de Checkbox ou Radio é verifcado pela propriedade <b> Checked </b> e precisa de um onChange para ser um componente controled.
+
+Exemplo:
+```
+          <label>
+            <input
+              type='checkbox'
+              checked={this.state.checked}
+              onChange={(e) => { this.setState({ checked: e.target.checked }) }}
+            />
+            checkbox
+          </label>
+```          
+
+
+
