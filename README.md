@@ -513,7 +513,7 @@ console.log('componentWillReceiveProps: '+ this.props + ',' + nextProps)
 Com this.props você consegue puxar as props antes de serem atualizadas, com o nextProps você tem as próximas propriedades
 
 
-### Aula M1#A22 - Lifecycle fluxo de atualização: shouldComponentUpdate
+### Aula M1#A24 - Lifecycle fluxo de atualização: shouldComponentUpdate
 
 Este método returna um valor bool, se true ele renderiza o component novamente se false ele não renderiza, recebe dois parametros nextProps e nextState.
 
@@ -527,3 +527,12 @@ return this.state !== next state
 }
 ```
 Neste caso no return está sendo enviada uma condição caso o state atual seja diferente do próximo state ele irá renderizar novamente o componente caso não irá manter o mesmo.
+
+### Aula M1#A25 - Lifecycle fluxo de atualização: componentWillUpdate
+Esse método é executado pouco antes do componente ser atualizado de fato, recebe nextProps e o nextState.
+Exemplo:
+```
+componentWillUpdate (nextProps, nextState) {
+console.log('componentWillUpdate' + nextProps + ', ' + nextState)
+}
+```
