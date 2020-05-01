@@ -662,5 +662,21 @@ Exemplo:
           </label>
 ```          
 
+### Aula M1#A30 -  Formulários Select
+Usamos o value e podemos pasar o selected direto no Select ao inves do option.
+Exemplo:
+```
+<form>
+          <select
+            value={this.state.value}
+            onChange={(e) => (this.setState({ value: e.target.value }))}
+          >
+            <option value='1'>Opção 1</option>
+            <option value='2'>Opção 2</option>
+          </select>
+        </form>
+ ```
+
+
 
 
