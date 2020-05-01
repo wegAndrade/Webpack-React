@@ -734,6 +734,45 @@ Exemplo
   }
   ```
 
+### Aula M1#A33 -  setState Assincrono
 
+Quando utilizamos o setState para alterar o estado de um componente de nossa aplicação o processo é feito de forma assincrona, o que signfica que caso tentemos executar algo após fazer a mudança não ocorrera no mesmo momento que a mudança de estado, por isso a função setState recebe um segundo parâmetro sendo uma função de calback após a execução da mudança de estado.
 
+Exemplo de utilização.
+```
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      checkBox: false,
+      showText: false
+    }
+  }
+render () {
+    return (
+      <div>
+        <form>
+          <label>
+            <input
+              type='checkbox'
+              checked={this.state.checked}
+              onChange={(e) => {
+                this.setState({
+                  checked: e.target.checked
+                }, () => {
+                  this.setState({
+                    showText: this.state.checked
+                  })
+                })
+              }}
+            />
+                checkbox
+          </label>
+          {this.state.showText && <input type='text' />}
+        </form>
+      </div>
+      ```
+      Neste trecho de código alteramos o estado do showText logo após o checkbox receber a alteração do checked então mostramos ou não o
+      input utilizando uma função de curto circuito do JS para verificar se os dois vão ser verdadeiros, como o input é sempre true
+      conforme a mudança de estado do showText o input é rederizado ou náo em tela
 
