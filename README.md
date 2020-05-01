@@ -536,3 +536,15 @@ componentWillUpdate (nextProps, nextState) {
 console.log('componentWillUpdate' + nextProps + ', ' + nextState)
 }
 ```
+
+
+
+### Aula M1#A26 - Lifecycle fluxo de atualização: componentDidUpdate
+Método é executado após o componente de fato ser atualizado, recebe como parammetro o prevProps e o prevState que são os valores anteriores a mudança.
+Exemplo
+```
+componentDidUpdate (prevProps, prevState) {
+console.log('componentDidUpdate: ' + prevProps + ', ' + prevState)
+}
+```
+Pode ser utilizado para armazenar mudanças e fazer um timing travel para navegar entre as mudanças e manter o historico.
