@@ -679,7 +679,7 @@ Exemplo:
  
 ### Aula M1#A31 -  Formulários TextArea
 
-deve ser um self-closed no JSX <b> ```<textarea``` /> <b>, é um anti-pattern utilizar o children do text área para rendezirar valores dentro dele, se deve usar o value ou defaultValue.
+deve ser um self-closed no JSX <b> ```<textarea``` /> </b>, é um anti-pattern utilizar o children do text área para rendezirar valores dentro dele, se deve usar o value ou defaultValue.
 Exemplo:
 ```
 class App extends React.Component {
