@@ -418,18 +418,18 @@ const Button = ({ children, handleClick }) => (
 O Button é também uma função pura que recebe dois parametros um children ( Elementos filhos - Aula M1#A16 - A prop Children) e uma prop que é uma função chamada handleClick, o Button é formado por um botão do html que possui como propriedade o onClick que chama a prop handleClick(uma função) e rendezira o children neste caso como texto do botão.
 
 ### Aula M1#A20 - Lifecycle dos componentes
-####Fluxos:(Metodos - servem para saber momentos especificos da vida do componente)
+#### Fluxos:(Metodos - servem para saber momentos especificos da vida do componente)
 ##### Mountin
-####### Montagem do Componente
+###### Montagem do Componente
 - componentWillMount - Antes do componente montar
 - componentDidMount - Montou
 
 ##### Unmounting
-####### Desmomtagem do Componente
+###### Desmomtagem do Componente
 - componentWillUnmount - Saber quando o componente será desmontado ou removido da tela
 
 ##### Updating
-####### Atualização
+###### Atualização
 - componentWillReceiveProps(nextProps) - Antes de ser atualizado e recebe os parametros das proximas props.
 - shouldComponentUpdate(nextProps, nextState) - Serve para verificar se deve ou não atualizar o component, recebe as próximas props e próximo state - Retorna Bool.
 - componentWillUpdate(nextProps, nextState) - Passou do should e ainda vai ser atualizado.
@@ -579,5 +579,70 @@ Warning: Failed prop type: The prop `handleClick` is marked as required in `Butt
 </b>
 
 Lista de tipos: [propTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+
+### Aula M1#A28 - introdução a Formulários em React
+
+Os formularios em React tem algumas peculiaridades, o Input não é o mesmo input do HTML e sim um OBJETO do React que possui as mesmas 
+propridaes como props, portanto quando setamos a propriedade value por exemplo em um input o React não permite a alteração desse valor
+quando o componente renderizado, pois como em React após renderizado não muda seu valor apenas componentes Stateful(que mudam estados)
+então é necessario utilizar o evento onChange e utilizar o state para pegar a mudança do input criando assim um componente controlled.
+Conforme Exemplo:
+
+```
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      value: 'Valor inicial'
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <form>
+          <input
+            value={this.state.value}
+            onChange={(e) => {
+              this.setState({
+                value: e.target.value
+              })
+            }}
+          />
+        </form>
+      </div>
+    )
+  }
+}
+```
+Este método é o mais recomendado pelo próprio React, porém existe outra forma de realizar um input criando um componente uncontrolled,
+apenas não passando um value ou utilizando o defaultValue.
+Exemplo:
+```
+'use strict'
+import React from 'react'
+
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      value: 'Valor inicial'
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <form>
+          <input
+            defaultValue='valor inicial'
+          />
+        </form>
+      </div>
+    )
+  }
+}
+```
 
 
