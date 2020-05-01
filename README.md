@@ -676,6 +676,35 @@ Exemplo:
           </select>
         </form>
  ```
+ 
+### Aula M1#A31 -  Formulários TextArea
+
+deve ser um self-closed no JSX <b> ```<textarea``` /> <b>, é um anti-pattern utilizar o children do text área para rendezirar valores dentro dele, se deve usar o value ou defaultValue.
+Exemplo:
+```
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      value: 'texto de text área'
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <form>
+          <textarea
+            value={this.state.value}
+            onChange={(e) => { this.setState({ value: e.target.value }) }}
+          />
+        </form>
+      </div>
+    )
+  }
+}
+```
+
 
 
 
