@@ -500,5 +500,15 @@ class App extends React.Component {
 
 --- Comentarios no código -----
 
-    
+### Aula M1#A22 - Lifecycle fluxo de atualização: componentWillReceiveProps
+
+esse metodo recebe um parametro cahamado nextProps, que são as novas propriedades do componente.
+Exemplo:
+
+``` 
+componentWillReceiveProps(nextProps) {
+console.log('componentWillReceiveProps: '+ this.props + ',' + nextProps)
+}
+```
+Com this.props você consegue puxar as props antes de serem atualizadas, com o nextProps você tem as próximas propriedades
  
