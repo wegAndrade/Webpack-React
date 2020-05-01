@@ -704,7 +704,35 @@ class App extends React.Component {
   }
 }
 ```
+### Aula M1#A32 -  Eventos para componentes de formulario
 
+No form podemos utilizar o onSubmit com uma função para realizar ações junto ao submit do form, juntamento com preventDefault podemos impedir a ação padrão do form e submit e realizar as ações desejadas.
+
+Podemos também utilizar o onChange para verificar alterações dentro do formulario, em todos os campos que estão dentro dele:
+Exemplo
+```
+
+  render () {
+    return (
+      <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            console.log('event: ' + e)
+          }}
+          onChange={(e) => {
+            console.log('value', e.target.value)
+          }}
+        >
+          <textarea
+            value={this.state.value}
+            onChange={(e) => { this.setState({ value: e.target.value }) }}
+          />
+        </form>
+      </div>
+    )
+  }
+  ```
 
 
 
