@@ -771,8 +771,63 @@ render () {
           {this.state.showText && <input type='text' />}
         </form>
       </div>
-      ```
-      Neste trecho de código alteramos o estado do showText logo após o checkbox receber a alteração do checked então mostramos ou não o
-      input utilizando uma função de curto circuito do JS para verificar se os dois vão ser verdadeiros, como o input é sempre true
-      conforme a mudança de estado do showText o input é rederizado ou náo em tela
+```
+Neste trecho de código alteramos o estado do showText logo após o checkbox receber a alteração do checked então mostramos ou não o
+input utilizando uma função de curto circuito do JS para verificar se os dois vão ser verdadeiros, como o input é sempre true
+conforme a mudança de estado do showText o input é rederizado ou náo em tela
+      
+### Aula M1#A34 -  GitHub app - Marcação
+
+Apenas criada a marcação da aplicação.
+```
+'use strict'
+
+import React from 'react'
+
+const App = () => (
+  <div>
+    <div className='app'>
+      <div className='search'>
+        <input type='search' placeholder='Digite o nome do Usuario no GitHub' />
+      </div>
+      <div className='user-info'>
+        <img src='https://avatars1.githubusercontent.com/u/46503357?v=4' />
+        <h1>
+          <a href='https://api.github.com/users/iTzWeg'>
+            Wellington de Andrade
+          </a>
+        </h1>
+
+        <ul className='repos-info'>
+          <li> - Repositorios: 122</li>
+          <li> - Seguidores: 0 </li>
+          <li> - Seguindo: 10 </li>
+        </ul>
+
+        <div className='actions'>
+          <button>Ver repositorios</button>
+          <button>Ver favoritos</button>
+        </div>
+        <div className='repos'>
+          <h2>Repositorios</h2>
+          <ul>
+            <li><a href='#'>Nome do repositorio</a></li>
+          </ul>
+        </div>
+
+        <div className='starred'>
+          <h2>Repositorios favoritos</h2>
+          <ul>
+            <li><a href='#'>Nome do repositorio</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+export default App
+
+```
+
 
