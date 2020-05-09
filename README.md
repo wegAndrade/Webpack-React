@@ -918,3 +918,17 @@ true
 false
 ```
 neste caso usamos de forma visual o console.log para faz dois testes emitindo um resultado correto e um teste com resultado errado por isso o retorno de true e false
+
+### M1#A53 TDD
+Test Driven Development 
+
+Com TDD você tem três passos que fecham um ciclo
+<br>
+<img src='https://res.cloudinary.com/practicaldev/image/fetch/s--CzYzALlX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/max/475/1%2A5IFu-XBsbzobAK3UxIOq4Q.png'>
+
+Red: Trata-se de escrever o teste antes de implementar o código. Sim, antes. Por isso o nome Red, porque o primeiro teste irá falhar.
+Green:Keep It Simple, Stupid. Basicamente, devemos implementar o mínimo código possível para fazermos o teste passar.
+Refactor: Refatorar o código. Simples. Tiramos linhas desnecessárias, encaramos a tela do computador e nos perguntamos se aquela é a 
+melhor maneira de fazer aquilo que estamos fazendo.
+
+[Referencia](https://medium.com/tableless/tdd-test-driven-development-71ad9a69d465)
