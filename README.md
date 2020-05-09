@@ -883,3 +883,38 @@ render () {
   }
 }
 ```
+### M1#A52 Aprendendo testes
+
+Testes automatizados são utilizados para validar com um historicos todas as alterações feitas e se elas geram o resultado esperado como saida seja para componentes, funções ou qualquer outro tipo de processamento.
+
+Por padrão será utilizado nome do arquivo + test para indicar o arquivo de teste daquele arquivo.
+Utilizando como exemplo uma função de soma simples:
+###### sum.js
+```
+'use strict'
+
+function sum (x,y) {
+  return x + y
+}
+
+module.exports = sum
+```
+
+###### sum-test.js
+```
+'use strict'
+const sum = require('./sum')
+
+console.log(sum(1, 2)=== 3)
+
+console.log(sum(1, 2)=== 1)
+```
+
+Utilizando o comando node test.js no terminal receberemos o retorno: 
+```
+Wellington@Weg-NTB MINGW64 ~/source/React Ninja/Learning-tests/test (master)
+$ node sum-test.js
+true
+false
+```
+neste caso usamos de forma visual o console.log para faz dois testes emitindo um resultado correto e um teste com resultado errado por isso o retorno de true e false
