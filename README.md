@@ -832,3 +832,54 @@ export default App
 ### Aula M1#A35 até Aula M1#A47 -  GitHub app - Será tratada no repositorio
 [Git Hub App](https://github.com/iTzWeg/GitHub-App)
 
+### M1#A49 Aula Spread Operator
+
+Spread Operator é uma sintaxe para copiarmos as propriedades de um objeto em JS para outro utilizando '...'
+
+No React podemos utilizar o Spread para passar porpriedades entre os componentes.
+Como exemplo iremos utilizar o GitHub app desenvolvido anteriormente:
+
+Observe que no construtor do component App temos dentro do state 4 propriedades(userInfo, repos, starred, isFetching):
+```
+class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      userInfo: null,
+      repos: [],
+      starred: [],
+      isFetching: false
+    }
+  }
+  ```
+  no método render estamos enviando para o componente AppContent os mesmos 4 estados da nossa aplicação.
+  ```
+render () {
+    return (
+      <AppContent
+        userInfo={this.state.userInfo}
+        repos={this.state.repos}
+        starred={this.state.starred}
+        isFetching={this.state.isFetching}
+        handleSearch={(e) => this.handleSearch(e)}
+        getRepos={this.getRepos('repos')}
+        getStarred={this.getRepos('starred')}
+      />
+    )
+  }
+  ``` 
+  desta forma como estamos passando todas as propriedades do nosso objeto state para o AppContent podemos utilizar o spread operator no JSX para enviar as propriedades deixando o código da seguinte forma:
+  
+  ```
+  render () {
+    return (
+      <AppContent
+        {...this.state}
+        handleSearch={(e) => this.handleSearch(e)}
+        getRepos={this.getRepos('repos')}
+        getStarred={this.getRepos('starred')}
+      />
+    )
+  }
+}
+```
