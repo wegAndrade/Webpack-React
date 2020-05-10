@@ -932,3 +932,42 @@ Refactor: Refatorar o código. Simples. Tiramos linhas desnecessárias, encaramo
 melhor maneira de fazer aquilo que estamos fazendo.
 
 [Referencia](https://medium.com/tableless/tdd-test-driven-development-71ad9a69d465)
+
+### M1#A54 Testes Unitarios em componentes ( Introdução)
+
+Para realizarmos a visualização dos testes unitario utilizaremos a execução do React no backend(server-side) para isso usaremos o React DOM Server e o whacko( como um jquery que roda no node.js)
+Exemplo:
+###### title.js
+```
+'use strict'
+const React = require('react')
+
+const Title = () => (
+  React.createElement('h1',{},'test')
+)
+module.exports = Title 
+```
+apenas criamos um componente chamado Title contendo um h1
+
+###### title-test.js
+```
+'use strict'
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const Title = require('./title')
+const $ = require('whacko')
+
+const TitleComponent = ReactDOMServer.renderToStaticMarkup(
+  React.createElement(Title)
+)
+console.log($(TitleComponent).get(0).tagName)
+```
+Executamos o node:
+###### output
+```
+Wellington@Weg-NTB MINGW64 ~/source/React Ninja/Learning-tests/test (master)
+$ node title-test.js
+h1
+```
+
+
