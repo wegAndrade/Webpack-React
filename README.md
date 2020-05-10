@@ -971,3 +971,27 @@ h1
 ```
 
 
+## Modulo 2
+
+### M2#A4 Jest na prática instalação e configuração
+O Jest é um ferramenta para criação de testes em JS, incluindo também o React e seus componentes.
+OBS: Necessario ter um package.json para fazer a instalação da dependencia
+
+Instalação do jest-cli:
+```
+npm install --save-dev jest-cli@15
+```
+
+no package.json adicionar a entrada Scripts com um test da seguinte forma:
+```
+"scripts": {
+    "test": "jest"
+  },
+```
+Executando o seguinte comendo no terminal:
+```
+npm test
+```
+o Jest irá verificar todos os arquivos de teste, o Regex procura por arquivos com seguinte nome :
+nomearquivo.test.js ou dentro da pasta '__test__'.
+
