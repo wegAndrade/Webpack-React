@@ -995,3 +995,69 @@ npm test
 o Jest irá verificar todos os arquivos de teste, o Regex procura por arquivos com seguinte nome :
 nomearquivo.test.js ou dentro da pasta '__test__'.
 
+### M2#A5 Jest na prática - Funções de teste
+
+Podemos utilizar o it para criar um teste tendo a sixtaxe:
+```
+it('TITULO DO TESTE', () => {
+})
+```
+
+Podemos utilizar também o expect para fazer asserção:
+```
+it ('Um é igual a Um', () => {
+  expect(1).toBe(2)
+} )
+```
+o retorno neste caso foi>
+```
+$ npm t
+
+> @ test C:\Users\user\source\React-Ninja\jest-in-pratice
+> jest
+
+ FAIL  __tests__\sum.test.js
+  × Um é igual a Um (10ms)
+
+  ● Um é igual a Um
+
+    expect(received).toBe(expected)
+
+    Expected value to be (using ===):
+      2
+    Received:
+      1
+
+      at Object.<anonymous>.it (__tests__\sum.test.js:5:13)
+      at process._tickCallback (internal\process\next_tick.js:68:7)
+
+Test Summary
+ › Ran all tests.
+ › 1 test failed, 0 tests passed (1 total in 1 test suite, run time 1.756s)
+npm ERR! Test failed.  See above for more details.
+```
+Ajustando o teste para passar ficariamos como seguinte código:
+```
+  
+'use strict'
+
+it ('Um é igual a Um', () => {
+  expect(1).toBe(1)
+} )
+```
+
+e com o seguinte retorno:
+```
+$ npm t
+
+> @ test C:\Users\user\source\React-Ninja\jest-in-pratice
+> jest
+
+ PASS  __tests__\sum.test.js
+  √ Um é igual a Um (3ms)
+
+Test Summary
+ › Ran all tests.
+ › 1 test passed (1 total in 1 test suite, run time 1.355s)
+ ```
+ 
